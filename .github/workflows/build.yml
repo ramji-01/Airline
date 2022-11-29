@@ -14,9 +14,9 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Install dependencies
-        run: npm install karma-coverage
+        run: npm install -g karma-coverage
       - name: Test and coverage
-        run: ng test
+        run: karma start karma.config.js
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
