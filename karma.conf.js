@@ -29,18 +29,15 @@ module.exports = function (config) {
       subdir: '.',
       reporters: [
         { type: 'html' },
-        { type: 'text-summary' },
+        { type: 'text-summary' }
       ]
     },
     reporters: ['progress', 'kjhtml'],
-    preprocessors: { 'app.js': 'coverage' },
-    files: ['app.js','tests.js'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    captureTimeout: 60000,
     singleRun: false,
     restartOnFileChange: true
   });
