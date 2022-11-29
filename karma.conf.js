@@ -33,6 +33,17 @@ module.exports = function (config) {
         { type: 'lcov'}
       ]
     },
+    sonarcloudReporter: {
+      basePath: 'src/app', // test files folder
+      filePattern: '**/*spec.ts', // test files glob pattern
+      encoding: 'utf-8', // test files encoding
+      outputFolder: 'reports', // report destination
+      legacyMode: false, // report for Sonarqube < 6.2 (disabled)
+      reportName: function (metadata) {  
+        return 'sonarcloud_report.xml';
+      },
+
+    },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
