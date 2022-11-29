@@ -13,25 +13,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - task: SonarCloudPrepare@1
-        displayName: "Prepare analysis on SonarCloud"
-        inputs:
-          organization: ramji-01
-          projectKey: ramji-01_Airline
-          scannerMode: CLI
-          cliSources: src
-          configMode: manual
-        extraProperties: |
-            sonar.verbose=true
-            sonar.sourceEncoding=UTF-8
-            sonar.language=ts
-            sonar.sources=src
-            sonar.exclusions=**/node_modules/**
-            sonar.tests=src
-            sonar.test.inclusions=**/*.spec.ts
-            sonar.typescript.lcov.reportPaths=coverage/AirlineMangement-Client-Main/lcov.info
-            sonar.testExecutionReportPaths=reports/sonarcloud_report.xml
-
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
